@@ -1,3 +1,33 @@
-body {
-    background-color: teal;
+*{
+    margin:0 auto;
+}
+
+header{
+    display: flex;
+    justify-content: space-around;
+    background-color: green;
+    padding-top: -300px;
+}
+
+aside{
+    display:flex;
+    flex-direction: column;
+    position: absolute;
+}
+
+section{
+    display:flex;
+    align-items: baseline;
+}
+
+#house{
+    width:fit-content;
+    width:500px;
+    height:500px;
+}
+
+
+#egg{
+    width:150px;
+    height:200px;
 }
