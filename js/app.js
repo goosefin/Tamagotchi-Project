@@ -3,9 +3,9 @@
 // alert('You must feed your pet, play with your pet and make sure your pet gets enough sleep. If any of these stats reach 10 your pet will pass on to the after life')
 
 //updates display with the name given by the user
-//const tamagotchiName = prompt('What do you want to name your pet')
-//const h1 = document.querySelector('h1')
-//h1.innerText = tamagotchiName;
+const petName = prompt('What do you want to name your pet')
+const h1 = document.querySelector('h1')
+h1.innerText = petName;
 
 //creates the Tamagotchi class
 class Tamagotchi {
@@ -34,13 +34,12 @@ class Tamagotchi {
 
 //instantiates the class
 const pet = new Tamagotchi
-let ageCounter = 0
 
-// let ageStat = document.querySelector('#age')
-// ageStat.innerText = pet.age
-// console.log(pet.age)
 
-//ages the pet every 10 seconds
+//ages the pet every 3 seconds
+//morphs pet when they're 5 and 10
+let ageCounter = pet.age
+
 const age = () => {
     let ageStat = document.querySelector('#age')
     ageCounter += 1
@@ -54,16 +53,49 @@ const age = () => {
         document.querySelector('.sprite').setAttribute('src','https://i.imgur.com/kbU1LlK.png')
     }
 }
-setInterval(age, 3000)
+//setInterval(age, 3000)
 
+//decreses hunger stat on interval  
+let hungerCounter = pet.hunger
 
-//morphs once the pet is 5 
-
-
-//checks if pet died
-if(pet.hunger === 10 || pet.sleep === 10 || pet.play === 10){
-    alert(`${tamagotchi} has died`)
+const hungerInterval = () => {
+    let hungerStat = document.querySelector('#hunger')
+    hungerCounter += 1
+    hungerStat.innerText = hungerCounter
+    if(hungerCounter == 10){
+        alert(`Oh no! ${petName} was so hungry they couldnt go on any more. May they rest in peace.`)
+    }
 }
+
+//setInterval(hungerInterval,1000)
+
+//decrese sleep stat on interval
+let sleepCounter = pet.sleep
+
+const sleepInterval = () => {
+    let sleepStat = document.querySelector('#sleep')
+    sleepCounter += 1
+    sleepStat.innerText = sleepCounter
+    if(sleepCounter == 10){
+        alert(`${petName} didnt get enough sleep and have passed away :'(`)
+    }
+}
+
+//setInterval(sleepInterval, 1000)
+
+//decrease play stat on interval
+let playCounter = pet.play
+
+const playInterval = () => {
+    let playStat = document.querySelector('#play')
+    playCounter += 1
+    playStat.innerText = playCounter
+    if(playCounter == 10){
+        alert(`You didnt play with ${petName} enough so they crossed the rainbow bridge`)
+    }
+}
+
+setInterval(playInterval, 1000)
 
 //night mode
 const darkToggle = () =>{
