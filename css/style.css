@@ -2,11 +2,16 @@
     margin:0 auto;
 }
 
+body{
+    background-image: url(https://i.imgur.com/cAcVz6s.jpg);
+}
+
 header{
     display: flex;
     justify-content: space-around;
     background-color: green;
     padding-top: -300px;
+    color: white;
 }
 
 aside{
@@ -17,17 +22,33 @@ aside{
 
 section{
     display:flex;
-    align-items: baseline;
+    justify-content: flex-end;
+}
+
+.bar{
+    border:2px solid black;
+    width:400px;
+    height:20px;
+}
+
+#grass{
+    background-color: green;
+    width:1500px;
+    height: 100px;
 }
 
 #house{
-    width:fit-content;
-    width:500px;
-    height:500px;
+    width:600px;
+    height:600px;
+    position: relative;
+    left: 100px;
+    top: 110px;
 }
-
 
 #egg{
     width:150px;
     height:200px;
+    position: absolute;
+    top:500px;
+    right: 200px;
 }
