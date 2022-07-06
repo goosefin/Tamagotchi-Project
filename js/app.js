@@ -36,11 +36,15 @@ class Tamagotchi {
 //ages the pet every 10 seconds
 let ageStat = document.querySelector('#age')
 let counter = 0
-setInterval(function () {
+/*setInterval(function () {
     counter += 1
     ageStat.innerText = counter
-}, 10000)
+}, 10000)*/
 
+//morphs once the pet is 5 
+if(ageStat === 5){
+    alert('Your pet is 5! Watch them morph!!')
+}
 
 //instantiates the class
 const pet = new Tamagotchi
@@ -50,9 +54,28 @@ if(pet.hunger === 10 || pet.sleep === 10 || pet.play === 10){
     alert(`${tamagotchi} has died`)
 }
 
+//night mode
+const darkToggle = () =>{
+    document.body.style.backgroundImage = "url('https://i.imgur.com/4iKxjHg.jpg')"
+    let stats = document.querySelectorAll('.stats')
+    for(let stat of stats){
+        stat.style.color = 'white'
+    }
+}
+
+//light mode
+const lightToggle = () => {
+    document.body.style.backgroundImage = "url('https://i.imgur.com/cAcVz6s.jpg')"
+    let stats = document.querySelectorAll('.stats')
+    for(let stat of stats){
+        stat.style.color = 'black'
+    }
+}
 
 
 //event listeners
-document.getElementById('feed-button').addEventListener('click', feed)
-document.getElementById('sleep-button').addEventListener('click', sleep)
-document.getElementById('play-button').addEventListener('click', play)
+document.getElementById('feed-button').addEventListener('click', pet.feed)
+document.getElementById('sleep-button').addEventListener('click', pet.rest)
+document.getElementById('play-button').addEventListener('click', pet.playTime)
+document.getElementById('dark-switch').addEventListener('click',darkToggle)
+document.getElementById('light-switch').addEventListener('click',lightToggle)

@@ -56,13 +56,13 @@ section{
     position: absolute;
     top:500px;
     right: 200px;
-    animation-name: slide;
+    animation-name: move;
     animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
 
-@keyframes slide{
+@keyframes move{
     from {left:200px}
     to {left: 400px}
 }
