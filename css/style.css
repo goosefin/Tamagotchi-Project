@@ -47,16 +47,13 @@ section{
     top: 112px;
 }
 
-#egg{
+.sprite{
     width:150px;
     height:200px;
     position: absolute;
     top:500px;
     right: 200px;
-    animation-name: move;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+    animation: 3s infinite alternate move;
 }
 
 @keyframes move{

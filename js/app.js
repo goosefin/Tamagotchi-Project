@@ -47,10 +47,14 @@ const age = () => {
     ageStat.innerText = ageCounter
     if(ageCounter == 5){
         alert('Your pet is 5! Watch them morph!!')
-        document.querySelector('#egg').setAttribute('src','https://i.imgur.com/YsEIIVQ.png')
+        document.querySelector('.sprite').setAttribute('src','https://i.imgur.com/YsEIIVQ.png')
+    }
+    if(ageCounter == 10){
+        alert('Your pet is 10! Watch them morph!!')
+        document.querySelector('.sprite').setAttribute('src','https://i.imgur.com/kbU1LlK.png')
     }
 }
-//setInterval(age, 1000)
+setInterval(age, 3000)
 
 
 //morphs once the pet is 5 
