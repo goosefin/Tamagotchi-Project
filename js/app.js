@@ -2,12 +2,12 @@
 // alert('Here are the rules:')
 // alert('You must feed your pet, play with your pet and make sure your pet gets enough sleep. If any of these stats reach 10 your pet will pass on to the after life')
 
-//updates display with the name given by the user
+//SETS PET NAME AND UPDATES HEADER
 const petName = prompt('What do you want to name your pet')
 const h1 = document.querySelector('h1')
 h1.innerText = petName;
 
-//creates the Tamagotchi class
+//CREATES NEW TAMAGOTCHI CLASS
 class Tamagotchi {
     constructor(hunger,sleep,play,age){
         this.hunger = 5
@@ -32,14 +32,24 @@ class Tamagotchi {
     }
 }
 
-//instantiates the class
+//RESETS GAME
+const resetGame = (tama) => {
+    tama.hunger = 5
+    document.getElementById('hunger').innerText = pet.hunger
+    tama.sleep = 5
+    document.getElementById('sleep').innerText = tama.sleep
+    tama.play = 5
+    document.getElementById('play').innerText = tama.play
+    tama.age = 0
+    document.getElementById('age').innerText = tama.age
+}
+
+//INSTANTIATES NEW PET FROM CLASS
 const pet = new Tamagotchi
 
 
-//ages the pet every 3 seconds
-//morphs pet when they're 5 and 10
+//INTERVALS
 let ageCounter = pet.age
-
 const age = () => {
     let ageStat = document.querySelector('#age')
     ageCounter += 1
@@ -55,23 +65,19 @@ const age = () => {
 }
 //setInterval(age, 3000)
 
-//decreses hunger stat on interval  
 let hungerCounter = pet.hunger
-
 const hungerInterval = () => {
     let hungerStat = document.querySelector('#hunger')
     hungerCounter += 1
     hungerStat.innerText = hungerCounter
     if(hungerCounter == 10){
         alert(`Oh no! ${petName} was so hungry they couldnt go on any more. May they rest in peace.`)
+        //resetGame(pet);
     }
 }
-
 //setInterval(hungerInterval,1000)
 
-//decrese sleep stat on interval
 let sleepCounter = pet.sleep
-
 const sleepInterval = () => {
     let sleepStat = document.querySelector('#sleep')
     sleepCounter += 1
@@ -80,12 +86,9 @@ const sleepInterval = () => {
         alert(`${petName} didnt get enough sleep and have passed away :'(`)
     }
 }
+//setInterval(sleepInterval, 10000)
 
-//setInterval(sleepInterval, 1000)
-
-//decrease play stat on interval
 let playCounter = pet.play
-
 const playInterval = () => {
     let playStat = document.querySelector('#play')
     playCounter += 1
@@ -94,10 +97,9 @@ const playInterval = () => {
         alert(`You didnt play with ${petName} enough so they crossed the rainbow bridge`)
     }
 }
+//setInterval(playInterval, 5000)
 
-setInterval(playInterval, 1000)
-
-//night mode
+//LIGHTS ON AND OFF
 const darkToggle = () =>{
     document.body.style.backgroundImage = "url('https://i.imgur.com/4iKxjHg.jpg')"
     let stats = document.querySelectorAll('.stats')
@@ -106,7 +108,6 @@ const darkToggle = () =>{
     }
 }
 
-//light mode
 const lightToggle = () => {
     document.body.style.backgroundImage = "url('https://i.imgur.com/cAcVz6s.jpg')"
     let stats = document.querySelectorAll('.stats')
@@ -115,13 +116,35 @@ const lightToggle = () => {
     }
 }
 
+//BUTTONS
+const feed = () => {
+    if(pet.hunger >= 1){
+        pet.hunger -= 1
+        document.querySelector('#hunger').innerText = pet.hunger
+    }  
+}
 
-//event listeners
-//document.getElementById('feed-button').addEventListener('click', feed)
-//document.getElementById('sleep-button').addEventListener('click', pet.rest)
-//document.getElementById('play-button').addEventListener('click', pet.playTime)
+const rest = () => {
+    if(pet.sleep >= 1){
+        pet.sleep -= 1
+        document.querySelector('#sleep').innerText = pet.sleep
+    }
+}
+
+const playTime = () => {
+    if(pet.play >= 1){
+        pet.play -= 1
+        document.querySelector('#play').innerText = pet.play
+    }
+}
+
+//EVENT LISTENERS
+document.getElementById('feed-button').addEventListener('click', feed)
+document.getElementById('sleep-button').addEventListener('click',rest)
+document.getElementById('play-button').addEventListener('click', playTime)
 document.getElementById('dark-switch').addEventListener('click',darkToggle)
 document.getElementById('light-switch').addEventListener('click',lightToggle)
+
 
 //Questions
 //Where can I put my DOM manupulation to update when my methods inside of the Tamagotchi class fire?
@@ -130,3 +153,7 @@ document.getElementById('light-switch').addEventListener('click',lightToggle)
 
 //How do I word my event listener do that it fires on tamagotchi object that i created?
     //I've tried instantiating a new class and then dding it to the even listener like on line 89 but it doesnt fire 
+
+//I created a restart game function that i want to pass in to the intervals that i created to increase the stats on my pet. 
+    //How can i sop the intervals from continuing to increase and update
+    //How can i reset my stats so that it shows up on the page via the DOM
