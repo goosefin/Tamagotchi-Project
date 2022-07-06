@@ -3,9 +3,9 @@
 // alert('You must feed your pet, play with your pet and make sure your pet gets enough sleep. If any of these stats reach 10 your pet will pass on to the after life')
 
 //SETS PET NAME AND UPDATES HEADER
-const petName = prompt('What do you want to name your pet')
-const h1 = document.querySelector('h1')
-h1.innerText = petName;
+// const petName = prompt('What do you want to name your pet')
+// const h1 = document.querySelector('h1')
+// h1.innerText = petName;
 
 //CREATES NEW TAMAGOTCHI CLASS
 class Tamagotchi {
@@ -15,21 +15,21 @@ class Tamagotchi {
         this.play = 5
         this.age = 0
     }
-    feed() {
-        if(this.hunger >= 0){
-            this.hunger -= 1
-        }
-    }  
-    rest(){
-        if(this.sleep >= 0){
-            this.sleep -= 1
-        }  
-    }
-    playTime(){
-        if(this.play >= 0){
-            this.play -= 1
-        }  
-    }
+    // feed() {
+    //     if(this.hunger >= 0){
+    //         this.hunger -= 1
+    //     }
+    // }  
+    // rest(){
+    //     if(this.sleep >= 0){
+    //         this.sleep -= 1
+    //     }  
+    // }
+    // playTime(){
+    //     if(this.play >= 0){
+    //         this.play -= 1
+    //     }  
+    // }
 }
 
 //RESETS GAME
@@ -46,7 +46,6 @@ const resetGame = (tama) => {
 
 //INSTANTIATES NEW PET FROM CLASS
 const pet = new Tamagotchi
-
 
 //INTERVALS
 let ageCounter = pet.age
@@ -147,12 +146,8 @@ document.getElementById('light-switch').addEventListener('click',lightToggle)
 
 
 //Questions
-//Where can I put my DOM manupulation to update when my methods inside of the Tamagotchi class fire?
-    //When i created a function outside of the constructor it ran fine
-    //Should i move all of my methods outside of the class declaration?
-
-//How do I word my event listener do that it fires on tamagotchi object that i created?
-    //I've tried instantiating a new class and then dding it to the even listener like on line 89 but it doesnt fire 
+// I created methods for all of my buttons inside of the class declaration but i dont know how to get them to fire in my event listeners so i moved them outside of the constructor and had them run as functions instead.
+    //Is there a way for me to put them inside of the constructor?
 
 //I created a restart game function that i want to pass in to the intervals that i created to increase the stats on my pet. 
     //How can i sop the intervals from continuing to increase and update
