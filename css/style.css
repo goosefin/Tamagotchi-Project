@@ -25,14 +25,10 @@ aside{
 
 section{
     display:flex;
-    /*justify-content: flex-end;*/
 }
 
-.bar{
-    border:2px solid black;
-    width:400px;
-    height:20px;
-    background-color: white;
+.stats{
+    font-size: 30px;
 }
 
 .buttons{
