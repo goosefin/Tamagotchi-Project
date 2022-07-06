@@ -60,4 +60,13 @@ section{
     position: absolute;
     top:500px;
     right: 200px;
+    animation-name: slide;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes slide{
+    from {left:200px}
+    to {left: 400px}
 }
