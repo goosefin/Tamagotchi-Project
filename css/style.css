@@ -12,10 +12,7 @@ header{
     background-color: green;
     padding-top: -300px;
     color: white;
-    align-items: flex-start;
 }
-
-
 
 aside{
     display:flex;
