@@ -6,7 +6,7 @@
 //SETS PET NAME AND UPDATES HEADER
 const petName = prompt('What do you want to name your pet')
 const h1 = document.querySelector('h1')
-h1.innerText = petName;
+h1.innerText = petName.toUpperCase();
 
 //CREATES NEW TAMAGOTCHI CLASS
 class Tamagotchi {
@@ -33,13 +33,12 @@ class Tamagotchi {
     }
 }
 
-//RESETS GAME
-
-
 //INSTANTIATES NEW PET FROM CLASS
 const pet = new Tamagotchi
 
 //INTERVALS
+//INCREASE AGE EVERY 10 SECONDS
+//MORPH WHEN PET IS 5 & 10
 let ageCounter = pet.age
 const age = () => {
     let ageStat = document.querySelector('#age')
@@ -54,46 +53,47 @@ const age = () => {
         document.querySelector('.sprite').setAttribute('src','https://i.imgur.com/kbU1LlK.png')
     }
 }
-//setInterval(age, 10000)
+setInterval(age, 10000)
 
-let hungerCounter = pet.hunger
+//INCREASE TAMAGOTCHIS HUNGER EVERY 5 SECONDS
 const hungerInterval = () => {
     let hungerStat = document.querySelector('#hunger')
-    hungerCounter += 1
-    hungerStat.innerText = hungerCounter
-    if(hungerCounter == 10){
+    pet.hunger += 1
+    hungerStat.innerText = pet.hunger
+    if(pet.hunger == 10){
         alert(`Oh no! ${petName} was so hungry they couldnt go on any more. May they rest in peace.`)
         alert('Game will now restart')
         location.reload()
     }
 }
-//setInterval(hungerInterval,1000)
+setInterval(hungerInterval,5000)
 
+//INCREASE TAMAGOTCHIS SLEEP EVERY 9 SECONDS
 let sleepCounter = pet.sleep
 const sleepInterval = () => {
     let sleepStat = document.querySelector('#sleep')
-    sleepCounter += 1
-    sleepStat.innerText = sleepCounter
-    if(sleepCounter == 10){
+    pet.sleep += 1
+    sleepStat.innerText = pet.sleep
+    if(pet.sleep == 10){
         alert(`${petName} didnt get enough sleep and have passed away :'(`)
         alert('Game will now restart')
         location.reload()
     }
 }
-//setInterval(sleepInterval, 10000)
+setInterval(sleepInterval, 9000)
 
-let playCounter = pet.play
+//INCREASE TAMAGOTCHIS PLAY EVERY 3 SECONDS
 const playInterval = () => {
     let playStat = document.querySelector('#play')
-    playCounter += 1
-    playStat.innerText = playCounter
-    if(playCounter == 10){
+    pet.play += 1
+    playStat.innerText = pet.play
+    if(pet.play == 10){
         alert(`You didnt play with ${petName} enough so they crossed the rainbow bridge`)
         alert('Game will now restart')
         location.reload()
     }
 }
-//setInterval(playInterval, 1000)
+setInterval(playInterval, 3000)
 
 //LIGHTS ON AND OFF
 const darkToggle = () =>{
@@ -127,6 +127,7 @@ const playTime = () => {
     pet.playTime()
     document.querySelector('#play').innerText = pet.play
 }
+
 
 //EVENT LISTENERS
 document.getElementById('feed-button').addEventListener('click', feed)
