@@ -14,7 +14,7 @@ class Tamagotchi {
         this.hunger = 5
         this.sleep = 5
         this.play = 5
-        this.age = 1
+        this.age = 0
     }
     feed() {
         if(this.hunger >= 1){
