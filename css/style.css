@@ -8,6 +8,7 @@ body{
 
 h1{
     color: black;
+    font-size: 40px;
 }
 
 header{
@@ -22,14 +23,17 @@ aside{
     display:flex;
     flex-direction: column;
     position: absolute;
+    margin-left:210px;
+    margin-top:10px;
 }
 
 section{
     display:flex;
+    justify-content: flex-end;
 }
 
 .stats{
-    font-size: 30px;
+    font-size: 40px;
 }
 
 .buttons{
@@ -40,23 +44,22 @@ section{
 
 #grass{
     background-color: green;
-    width:1500px;
     height: 100px;
 }
 
 #house{
-    width:600px;
-    height:600px;
     position: relative;
     left: 100px;
     top: 112px;
+    margin-left:150px;
+    margin-right:150px;
 }
 
 .sprite{
     width:150px;
     height:200px;
     position: absolute;
-    top:500px;
+    top:525px;
     right: 200px;
     animation: 3s infinite alternate move;
 }

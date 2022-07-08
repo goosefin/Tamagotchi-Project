@@ -62,7 +62,7 @@ const hungerInterval = () => {
     hungerStat.innerText = pet.hunger
     if(pet.hunger == 10){
         alert(`Oh no! ${petName} was so hungry they couldnt go on any more. May they rest in peace.`)
-        alert('Game will now restart')
+        alert('Press ok to restart game!')
         location.reload()
     }
 }
@@ -76,7 +76,7 @@ const sleepInterval = () => {
     sleepStat.innerText = pet.sleep
     if(pet.sleep == 10){
         alert(`${petName} didnt get enough sleep and have passed away :'(`)
-        alert('Game will now restart')
+        alert('Press ok to restart game!')
         location.reload()
     }
 }
@@ -89,7 +89,7 @@ const playInterval = () => {
     playStat.innerText = pet.play
     if(pet.play == 10){
         alert(`You didnt play with ${petName} enough so they crossed the rainbow bridge`)
-        alert('Game will now restart')
+        alert('Press ok to restart game!')
         location.reload()
     }
 }
