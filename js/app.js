@@ -97,6 +97,8 @@ const darkToggle = () =>{
     for(let stat of stats){
         stat.style.color = 'white'
     }
+    document.querySelector('header').style.backgroundColor = 'black'
+    document.querySelector('h1').style.color = 'white'
 }
 
 const lightToggle = () => {
@@ -105,6 +107,8 @@ const lightToggle = () => {
     for(let stat of stats){
         stat.style.color = 'black'
     }
+    document.querySelector('header').style.backgroundColor = 'white'
+    document.querySelector('h1').style.color = 'black'
 }
 
 //BUTTONS
