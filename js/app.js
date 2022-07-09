@@ -1,7 +1,7 @@
 //INSTRUCTIONS TO BEGIN GAME
-// alert('Welcome to my tamagotchi game!')
-// alert('Here are the rules:')
-// alert('You must feed your pet, play with your pet and make sure your pet gets enough sleep. If any of these stats reach 10 your pet will pass on to the after life')
+alert('Welcome to my tamagotchi game!')
+alert('Here are the rules:')
+alert('You must feed your pet, play with your pet and make sure your pet gets enough sleep. If any of these stats reach 10 your pet will pass on to the after life')
 
 //SETS PET NAME AND UPDATES HEADER
 const petName = prompt('What do you want to name your pet')
@@ -51,7 +51,7 @@ const age = () => {
         document.querySelector('.sprite').setAttribute('src','https://i.imgur.com/kbU1LlK.png')
     }
 }
-//setInterval(age, 10000)
+setInterval(age, 10000)
 
 //CHECK IF PET DIED
 const petIsDead = () => {
@@ -69,7 +69,7 @@ const hungerInterval = () => {
     hungerStat.innerText = pet.hunger
     petIsDead()
 }
-//setInterval(hungerInterval,5000)
+setInterval(hungerInterval,5000)
 
 //INCREASE TAMAGOTCHIS SLEEP EVERY 9 SECONDS
 let sleepCounter = pet.sleep
@@ -79,7 +79,7 @@ const sleepInterval = () => {
     sleepStat.innerText = pet.sleep
     petIsDead()
 }
-//setInterval(sleepInterval, 9000)
+setInterval(sleepInterval, 9000)
 
 //INCREASE TAMAGOTCHIS PLAY EVERY 3 SECONDS
 const playInterval = () => {
@@ -88,7 +88,7 @@ const playInterval = () => {
     playStat.innerText = pet.play
     petIsDead()
 }
-//setInterval(playInterval, 3000)
+setInterval(playInterval, 3000)
 
 //LIGHTS ON AND OFF
 const lightSwitch = () => {
