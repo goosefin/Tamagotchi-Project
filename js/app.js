@@ -37,34 +37,37 @@ class Tamagotchi {
 const pet = new Tamagotchi
 
 //INTERVALS
-//INCREASE AGE EVERY 10 SECONDS
-//MORPH WHEN PET IS 5 & 10
-let ageCounter = pet.age
+//INCREASE AGE EVERY 10 SECONDS & MORPH WHEN PET IS 5 AND 10
 const age = () => {
     let ageStat = document.querySelector('#age')
-    ageCounter += 1
-    ageStat.innerText = ageCounter
-    if(ageCounter == 5){
+    pet.age += 1
+    ageStat.innerText = pet.age
+    if(pet.age == 5){
         alert('Your pet is 5! Watch them morph!!')
         document.querySelector('.sprite').setAttribute('src','https://i.imgur.com/YsEIIVQ.png')
     }
-    if(ageCounter == 10){
+    if(pet.age == 10){
         alert('Your pet is 10! Watch them morph!!')
         document.querySelector('.sprite').setAttribute('src','https://i.imgur.com/kbU1LlK.png')
     }
 }
 setInterval(age, 10000)
 
+//CHECK IF PET DIED
+const petIsDead = () => {
+    if(pet.hunger == 10 || pet.sleep == 10 || pet.play == 10){
+        alert(`Oh no! ${petName} died :'(`)
+        alert('Press ok to restart game!')
+        location.reload()
+    }
+}
+
 //INCREASE TAMAGOTCHIS HUNGER EVERY 5 SECONDS
 const hungerInterval = () => {
     let hungerStat = document.querySelector('#hunger')
     pet.hunger += 1
     hungerStat.innerText = pet.hunger
-    if(pet.hunger == 10){
-        alert(`Oh no! ${petName} was so hungry they couldnt go on any more. May they rest in peace.`)
-        alert('Press ok to restart game!')
-        location.reload()
-    }
+    petIsDead()
 }
 setInterval(hungerInterval,5000)
 
@@ -74,11 +77,7 @@ const sleepInterval = () => {
     let sleepStat = document.querySelector('#sleep')
     pet.sleep += 1
     sleepStat.innerText = pet.sleep
-    if(pet.sleep == 10){
-        alert(`${petName} didnt get enough sleep and have passed away :'(`)
-        alert('Press ok to restart game!')
-        location.reload()
-    }
+    petIsDead()
 }
 setInterval(sleepInterval, 9000)
 
@@ -87,11 +86,7 @@ const playInterval = () => {
     let playStat = document.querySelector('#play')
     pet.play += 1
     playStat.innerText = pet.play
-    if(pet.play == 10){
-        alert(`You didnt play with ${petName} enough so they crossed the rainbow bridge`)
-        alert('Press ok to restart game!')
-        location.reload()
-    }
+    petIsDead()
 }
 setInterval(playInterval, 3000)
 
