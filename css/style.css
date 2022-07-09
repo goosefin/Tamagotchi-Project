@@ -23,7 +23,7 @@ aside{
     display:flex;
     flex-direction: column;
     position: absolute;
-    margin-left:210px;
+    margin-left:300px;
     margin-top:10px;
 }
 
@@ -69,14 +69,7 @@ section{
     to {left: 400px}
 }
 
-#light-switch{
-    background-color: white;
-    color:black;
-    border-radius:1em;
-    padding:10px;
-}
-
-#dark-switch{
+#light-toggle{
     background-color: black;
     color:white;
     border-radius:1em;
@@ -100,4 +93,12 @@ section{
     margin-left:2.5px;
     padding: 10px;
     border-radius:1em;
+}
+
+.dark {
+    color: white;
+}
+
+.light {
+    color: black;
 }

@@ -51,7 +51,7 @@ const age = () => {
         document.querySelector('.sprite').setAttribute('src','https://i.imgur.com/kbU1LlK.png')
     }
 }
-setInterval(age, 10000)
+//setInterval(age, 10000)
 
 //CHECK IF PET DIED
 const petIsDead = () => {
@@ -69,7 +69,7 @@ const hungerInterval = () => {
     hungerStat.innerText = pet.hunger
     petIsDead()
 }
-setInterval(hungerInterval,5000)
+//setInterval(hungerInterval,5000)
 
 //INCREASE TAMAGOTCHIS SLEEP EVERY 9 SECONDS
 let sleepCounter = pet.sleep
@@ -79,7 +79,7 @@ const sleepInterval = () => {
     sleepStat.innerText = pet.sleep
     petIsDead()
 }
-setInterval(sleepInterval, 9000)
+//setInterval(sleepInterval, 9000)
 
 //INCREASE TAMAGOTCHIS PLAY EVERY 3 SECONDS
 const playInterval = () => {
@@ -88,27 +88,31 @@ const playInterval = () => {
     playStat.innerText = pet.play
     petIsDead()
 }
-setInterval(playInterval, 3000)
+//setInterval(playInterval, 3000)
 
 //LIGHTS ON AND OFF
-const darkToggle = () =>{
-    document.body.style.backgroundImage = "url('https://i.imgur.com/4iKxjHg.jpg')"
+const lightSwitch = () => {
     let stats = document.querySelectorAll('.stats')
+    let lightButton = document.querySelector('#light-toggle') 
     for(let stat of stats){
-        stat.style.color = 'white'
+        if(stat.classList.contains('light')){
+            stat.classList.remove('light')
+            stat.classList.add('dark')
+            document.querySelector('header').style.backgroundColor = 'black'
+            document.querySelector('h1').style.color = 'white'
+            document.body.style.backgroundImage = "url('https://i.imgur.com/4iKxjHg.jpg')"
+            lightButton.style.backgroundColor = 'white'
+            lightButton.style.color = 'black'
+        }else if(stat.classList.contains('dark')){
+            stat.classList.remove('dark')
+            stat.classList.add('light')
+            document.querySelector('header').style.backgroundColor = 'white'
+            document.querySelector('h1').style.color = 'black'
+            document.body.style.backgroundImage = "url('https://i.imgur.com/cAcVz6s.jpg')"
+            lightButton.style.backgroundColor = 'black'
+            lightButton.style.color = 'white'
+        }
     }
-    document.querySelector('header').style.backgroundColor = 'black'
-    document.querySelector('h1').style.color = 'white'
-}
-
-const lightToggle = () => {
-    document.body.style.backgroundImage = "url('https://i.imgur.com/cAcVz6s.jpg')"
-    let stats = document.querySelectorAll('.stats')
-    for(let stat of stats){
-        stat.style.color = 'black'
-    }
-    document.querySelector('header').style.backgroundColor = 'white'
-    document.querySelector('h1').style.color = 'black'
 }
 
 //BUTTONS
@@ -132,7 +136,7 @@ const playTime = () => {
 document.getElementById('feed-button').addEventListener('click', feed)
 document.getElementById('sleep-button').addEventListener('click',rest)
 document.getElementById('play-button').addEventListener('click', playTime)
-document.getElementById('dark-switch').addEventListener('click',darkToggle)
-document.getElementById('light-switch').addEventListener('click',lightToggle)
+document.getElementById('light-toggle').addEventListener('click',lightSwitch)
+
 
 
